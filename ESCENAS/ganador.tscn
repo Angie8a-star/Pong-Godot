@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7lgocqe7yii3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wd76v"]
+
+[node name="ganador" type="Node2D"]
+
+[node name="Jugador ha ganado" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 224.0
+offset_bottom = 131.0
+scale = Vector2(4.775, 4.775)
+text = "JUGADOR 1 HA GANADO"
+label_settings = SubResource("LabelSettings_wd76v")
+horizontal_alignment = 1
+vertical_alignment = 1

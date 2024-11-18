@@ -1,0 +1,189 @@
+[gd_scene load_steps=19 format=3 uid="uid://vyyxva1iygoy"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_7kjn1"]
+[ext_resource type="Script" path="res://scripts/p1.gd" id="1_ksk0i"]
+[ext_resource type="Texture2D" uid="uid://t4s2ds3q7bjw" path="res://paleta.png" id="2_ycqw4"]
+[ext_resource type="Script" path="res://scripts/p2.gd" id="3_peyh0"]
+[ext_resource type="Script" path="res://scripts/pelota.gd" id="4_ehwc2"]
+[ext_resource type="Texture2D" uid="uid://bwswqa1d7krc4" path="res://Sin título.png" id="5_1y3tm"]
+[ext_resource type="Texture2D" uid="uid://3ymdjpwpbunx" path="res://linea guia.png" id="6_e5kw6"]
+[ext_resource type="FontFile" uid="uid://hpjd632vmroi" path="res://easvhs.ttf" id="8_saavk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksvvw"]
+size = Vector2(1199, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4pl8"]
+size = Vector2(1215, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdlrh"]
+size = Vector2(66, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3pr4"]
+size = Vector2(70, 617)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6ejo"]
+size = Vector2(55, 615)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p60vt"]
+size = Vector2(74.25, 618.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mo16v"]
+radius = 12.5
+height = 176.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07d7g"]
+radius = 14.0
+height = 176.375
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jvong"]
+radius = 17.8885
+
+[sub_resource type="LabelSettings" id="LabelSettings_1f7ir"]
+font = ExtResource("8_saavk")
+font_size = 50
+font_color = Color(0.996078, 0.996078, 1, 1)
+
+[node name="GAME" type="Node2D"]
+script = ExtResource("1_7kjn1")
+
+[node name="paredes arriba y abajo" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="arriba" type="Sprite2D" parent="paredes arriba y abajo"]
+modulate = Color(0.996078, 0.996078, 1, 1)
+position = Vector2(577, -3.99997)
+scale = Vector2(1.0191, 0.0540123)
+texture = ExtResource("2_ycqw4")
+
+[node name="arriba2" type="CollisionShape2D" parent="paredes arriba y abajo"]
+position = Vector2(565.5, -6)
+shape = SubResource("RectangleShape2D_ksvvw")
+
+[node name="abajo" type="Sprite2D" parent="paredes arriba y abajo"]
+modulate = Color(0.996078, 0.996078, 1, 1)
+position = Vector2(586.626, 663)
+scale = Vector2(1.05143, 0.0802468)
+texture = ExtResource("2_ycqw4")
+
+[node name="abajo2" type="CollisionShape2D" parent="paredes arriba y abajo"]
+position = Vector2(577.5, 666)
+shape = SubResource("RectangleShape2D_q4pl8")
+
+[node name="LineaGuia" type="Sprite2D" parent="paredes arriba y abajo"]
+position = Vector2(577, 322)
+scale = Vector2(0.239998, 1.2734)
+texture = ExtResource("6_e5kw6")
+
+[node name="pared derecha" type="StaticBody2D" parent="."]
+position = Vector2(-1, 7)
+metadata/_edit_group_ = true
+
+[node name="derecha" type="Sprite2D" parent="pared derecha"]
+modulate = Color(0.997994, 0.996375, 0.999956, 1)
+self_modulate = Color(0.996078, 0.996078, 1, 1)
+position = Vector2(1163, 322)
+scale = Vector2(0.0390625, 1.05478)
+texture = ExtResource("2_ycqw4")
+
+[node name="derecha2" type="CollisionShape2D" parent="pared derecha"]
+position = Vector2(1157, 315)
+shape = SubResource("RectangleShape2D_pdlrh")
+
+[node name="pared_derecha" type="Area2D" parent="pared derecha"]
+position = Vector2(109, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared derecha/pared_derecha"]
+position = Vector2(1047, 315)
+shape = SubResource("RectangleShape2D_m3pr4")
+
+[node name="pared izquierda" type="StaticBody2D" parent="."]
+position = Vector2(3, -25)
+metadata/_edit_group_ = true
+
+[node name="izquierda" type="Sprite2D" parent="pared izquierda"]
+modulate = Color(0.996078, 0.996078, 1, 1)
+position = Vector2(-12, 358)
+scale = Vector2(0.0355902, 1.09877)
+texture = ExtResource("2_ycqw4")
+
+[node name="izquierda22" type="CollisionShape2D" parent="pared izquierda"]
+position = Vector2(-3.5, 352.5)
+shape = SubResource("RectangleShape2D_w6ejo")
+
+[node name="pared_izquierda" type="Area2D" parent="pared izquierda"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared izquierda/pared_izquierda"]
+position = Vector2(-5.125, 349)
+shape = SubResource("RectangleShape2D_p60vt")
+
+[node name="p1" type="CharacterBody2D" parent="."]
+position = Vector2(37, 320)
+script = ExtResource("1_ksk0i")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="p1"]
+modulate = Color(1, 0.0470588, 0.0392157, 1)
+position = Vector2(0, 9.29832e-06)
+scale = Vector2(0.0182292, 0.246914)
+texture = ExtResource("2_ycqw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="p1"]
+position = Vector2(0, 0.000137329)
+shape = SubResource("CapsuleShape2D_mo16v")
+
+[node name="p2" type="CharacterBody2D" parent="."]
+position = Vector2(0, 320)
+script = ExtResource("3_peyh0")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="p2"]
+modulate = Color(0.222302, 0.438242, 1, 1)
+position = Vector2(1117.12, 1.28746e-05)
+scale = Vector2(0.0193143, 0.246914)
+texture = ExtResource("2_ycqw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="p2"]
+position = Vector2(1116.12, -0.187485)
+shape = SubResource("CapsuleShape2D_07d7g")
+
+[node name="pelota" type="CharacterBody2D" parent="." groups=["pelota"]]
+position = Vector2(576, 320)
+script = ExtResource("4_ehwc2")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="pelota"]
+position = Vector2(0.0273438, -0.25)
+scale = Vector2(0.287672, 0.269531)
+texture = ExtResource("5_1y3tm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pelota"]
+shape = SubResource("CircleShape2D_jvong")
+
+[node name="Puntaje p1" type="Label" parent="."]
+offset_left = 470.0
+offset_top = 28.0
+offset_right = 513.0
+offset_bottom = 79.0
+text = "0"
+label_settings = SubResource("LabelSettings_1f7ir")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Puntaje p2" type="Label" parent="."]
+offset_left = 644.0
+offset_top = 30.0
+offset_right = 687.0
+offset_bottom = 81.0
+text = "0"
+label_settings = SubResource("LabelSettings_1f7ir")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.516
+autostart = true
+
+[connection signal="body_entered" from="pared derecha/pared_derecha" to="." method="_on_pared_derecha_body_entered"]
+[connection signal="body_entered" from="pared derecha/pared_derecha" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="pared izquierda/pared_izquierda" to="." method="_on_pared_izquierda_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_ganaste_timeout"]
